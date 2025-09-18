@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, ChevronRight, ChevronLeft, Building2, LogIn, UserRound } from "lucide-react";
-import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate, useParams, HashRouter } from "react-router-dom";
 import {IssueContent} from "./issueContent.jsx";
 import {AdvocacyContent} from "./advocacyContent.jsx";
 import {MemberContent} from "./memberContent.jsx";
@@ -9,8 +9,8 @@ import {MemberContent} from "./memberContent.jsx";
 function HomeContent() {
   return (
     <div className="text-center">
-      <h1 className="text-2xl font-bold mb-2">Welcome</h1>
-      <p>Select an issue from the menu to view content.</p>
+      <h1 className="text-2xl text-black font-bold mb-2">Welcome to eGutenbergPress</h1>
+      <p>Select from the menu to view content.</p>
     </div>
   );
 }
@@ -259,7 +259,7 @@ const Jurisdictions = ["Congress", ...states];
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto text-gray-600 p-4 mt-16">
         <Routes>
-          <Route path="/" element={<HomeContent />} />
+          <Route path="/navigation-example" element={<HomeContent />} />
           <Route path="/issues/:issueName" element={<IssuePage />} />
           <Route path="/loc/:locName" element={<AdvocacyPage />} />
           <Route path="/members/:locName" element={<MemberPage />} />
@@ -272,9 +272,9 @@ const Jurisdictions = ["Congress", ...states];
 // Wrap App in Router
 export function Root() {
   return (
-    <Routes>
+    <HashRouter>
       <App />
-    </Routes>
+    </HashRouter>
   );
 }
 
