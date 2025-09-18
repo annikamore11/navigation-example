@@ -12,7 +12,7 @@ export function MemberContent({ locName }) {
 
   // Filters
   const [selectedState, setSelectedState] = useState(isCongress ? "" : displayName);
-  const [selectedChamber, setSelectedChamber] = useState(isCongress ? "Congress" : "Senate");
+  const [selectedChamber, setSelectedChamber] = useState("");
   const [selectedCommittee, setSelectedCommittee] = useState("");
 
   // Example committee lists
