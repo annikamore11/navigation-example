@@ -269,7 +269,7 @@ const Jurisdictions = ["Congress", ...states];
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto text-gray-600">
         <Routes>
-          <Route path="/" element={<MissionPage />} />
+          <Route path="/navigation-example" element={<MissionPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/issues/:issueName" element={<IssuePage />} />
           <Route path="/loc/:locName" element={<AdvocacyPage />} />
