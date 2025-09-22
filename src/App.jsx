@@ -282,7 +282,7 @@ const Jurisdictions = ["Congress", ...states];
       <footer className="bg-gray-800 text-white p-4 text-center w-full flex justify-between gap-4">
         &copy; {new Date().getFullYear()} eGutenbergPress. All rights reserved.{" "}
         <a
-          href="/"
+          href="/navigation-example"
           className="text-white hover:underline ml-2"
         >
           Our Mission
