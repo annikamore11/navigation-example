@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { Menu, X, ChevronRight, ChevronLeft, Building2, LogIn, UserRound } from "lucide-react";
 import { BrowserRouter as Router, Routes, Route, useNavigate, useParams, HashRouter } from "react-router-dom";
-import {IssueContent} from "./issueContent.jsx";
-import {AdvocacyContent} from "./advocacyContent.jsx";
-import {MemberContent} from "./memberContent.jsx";
+import MissionContent from "./Pages/missionContent.jsx";
+import HomeContent from "./Pages/homeContent.jsx";
+import {IssueContent} from "./Pages/issueContent.jsx";
+import {AdvocacyContent} from "./Pages/advocacyContent.jsx";
+import {MemberContent} from "./Pages/memberContent.jsx";
 
-// Simple Home content
-function HomeContent() {
-  return (
-    <div className="text-center">
-      <h1 className="text-2xl text-black font-bold mb-2">Welcome to eGutenbergPress</h1>
-      <p>Select from the menu to view content.</p>
-    </div>
-  );
+
+function MissionPage() {
+  return <MissionContent />;
+  
 }
 
+function HomePage() {
+  return <HomeContent />;
+  
+}
 
 function IssuePage() {
   const { issueName } = useParams();
@@ -96,11 +98,13 @@ const Jurisdictions = ["Congress", ...states];
   };
 
   return (
-    <div className="h-screen w-screen bg-gray-100 flex flex-col">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="flex items-center p-4 bg-white shadow z-10 justify-between">
+      <header className="flex items-center p-4 bg-gray-800 shadow z-10 justify-between">
         {/* Logo on the left */}
-        <p className="text-s font-semibold" style={{ fontFamily: "Times New Roman, Times, serif" }}>
+        <p className="text-s font-semibold text-white cursor-pointer" 
+        onClick={() => navigate("/home")}
+        >
           eGutenbergPress
         </p>
 
@@ -127,12 +131,15 @@ const Jurisdictions = ["Congress", ...states];
         </div>
       </header>
 
+
       {/* Overlay */} 
       {menuOpen && ( 
         <div className="fixed inset-0 bg-black opacity-20 z-10" 
         onClick={() => setMenuOpen(false)} >
         </div> 
       )}
+
+      
 
       {/* Slide Menu */}
       <div
@@ -250,21 +257,37 @@ const Jurisdictions = ["Congress", ...states];
               ))}
             </ul>
           )}
+          
         </div>
+        
       </div>
 
+      
 
 
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto text-gray-600 p-4 mt-16">
+      <main className="flex-1 overflow-y-auto text-gray-600">
         <Routes>
-          <Route path="/navigation-example" element={<HomeContent />} />
+          <Route path="/" element={<MissionPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/issues/:issueName" element={<IssuePage />} />
           <Route path="/loc/:locName" element={<AdvocacyPage />} />
           <Route path="/members/:locName" element={<MemberPage />} />
+
         </Routes>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white p-4 text-center w-full flex justify-between gap-4">
+        &copy; {new Date().getFullYear()} eGutenbergPress. All rights reserved.{" "}
+        <a
+          href="/"
+          className="text-white hover:underline ml-2"
+        >
+          Our Mission
+        </a>
+      </footer>
     </div>
   );
 }

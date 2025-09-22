@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BillCarousel from "./billCarousel";
+import BillCarousel from "../Carousel/billCarousel";
 
 // Map URL-friendly issue names to content
 export const issueContentMap = {
@@ -49,15 +49,45 @@ const legislationCards = {
 };
 
 // Example cards for other tabs
-const exampleCards = {
+export const exampleCards = {
   News: [
-    { title: "Healthcare Policy Update", description: "Share thoughts on the latest healthcare news." },
-    { title: "Economic Forecast", description: "React to news about the economy." }
+    {
+      id: "news-1",
+      title: "Major Supreme Court Ruling Defunds Medicare",
+      description: "Court decision reshapes healthcare policy nationwide.",
+      issue: "health-policy", // 👈 tag
+      articles: [
+        { title: "NYTimes Coverage", url: "https://example.com/nyt" },
+        { title: "Politico Coverage", url: "https://example.com/politico" },
+      ],
+    },
+    {
+      id: "news-2",
+      title: "Climate Bill Blocked in Senate",
+      description: "A major climate bill was stalled after procedural votes.",
+      issue: "climate-energy-&-environment", // 👈 tag
+      articles: [
+        { title: "CNN Coverage", url: "https://example.com/cnn" },
+        { title: "Reuters Coverage", url: "https://example.com/reuters" },
+      ],
+    },
   ],
   Campaigns: [
-    { title: "Clean Energy Campaign", description: "Join campaigns and make your voice count." },
-    { title: "Criminal Justice Reform", description: "Engage with active campaigns." }
-  ]
+    {
+      title: "Support Affordable Care Act",
+      description: "League of Women Voters urges you to voice OPPOSITION to the new court ruling ",
+      issue: "health-policy", // 👈 tag
+      sourceType: "News",
+      sourceId: "news-1",
+    },
+    {
+      title: "Push for Renewable Energy Standards",
+      description: "Join us in demanding clean energy legislation.",
+      issue: "climate-energy-&-environment", // 👈 tag
+      sourceType: "News",
+      sourceId: "news-2",
+    },
+  ],
 };
 
 
@@ -73,6 +103,13 @@ export function IssueContent({ issueName }) {
   const [showAllBills, setShowAllBills] = useState(false); // Expandable toggle
   const [selectedBillStatus, setSelectedBillStatus] = useState("introduced");
 
+  // Filter data by issueName
+  const filteredNews = exampleCards.News.filter(
+    (n) => n.issue === issueName
+  );
+  const filteredCampaigns = exampleCards.Campaigns.filter(
+    (c) => c.issue === issueName
+  );
 
   // Placeholder stats (replace with live data if available)
   const engagementStats = {
@@ -246,12 +283,98 @@ export function IssueContent({ issueName }) {
         </>
       )}
       
+      
 
-      {/* Other Tabs */}
-      {activeType !== "Legislation" && (
+      {/* News */}
+      {activeType === "News" && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Replace with actual News/Campaigns cards */}
-          <p>Loading...</p>
+          {filteredNews.map((news, idx) => (
+            <div
+              key={idx}
+              className="bg-white border rounded-lg shadow hover:shadow-md p-4 transition"
+            >
+              <h4 className="font-bold text-lg mb-2">{news.title}</h4>
+              <p className="text-gray-600 mb-3">{news.description}</p>
+
+              <details className="mt-2">
+                <summary className="cursor-pointer text-sm text-blue-600 font-semibold">
+                  View Related Articles
+                </summary>
+                <ul className="mt-2 list-disc list-inside text-sm text-gray-600">
+                  {news.articles.map((a, i) => (
+                    <li key={i}>
+                      <a
+                        href={a.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:underline"
+                      >
+                        {a.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Campaigns */}
+      {activeType === "Campaigns" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {filteredCampaigns.map((campaign, idx) => {
+            let source = null;
+
+            if (campaign.sourceType === "News") {
+              source = exampleCards.News.find((n) => n.id === campaign.sourceId);
+            }
+            // Later you can add: if (campaign.sourceType === "Bill") { ... }
+
+            return (
+              <div
+                key={idx}
+                className="bg-white border rounded-lg shadow hover:shadow-md p-4 transition"
+              >
+                <h4 className="font-bold text-lg mb-2">{campaign.title}</h4>
+                <p className="text-gray-600">{campaign.description}</p>
+
+                {/* Support button */}
+                <button className="mt-3 px-3 py-1 bg-red-600 text-black rounded shadow hover:bg-red-700 transition">
+                  View Campaign
+                </button>
+
+                {/* Dropdown for source */}
+                {source && (
+                  <details className="mt-3">
+                    <summary className="cursor-pointer text-sm text-blue-600 font-semibold">
+                      View Related {campaign.sourceType}
+                    </summary>
+                    <div className="mt-2 text-sm text-gray-700">
+                      <p className="font-semibold">{source.title}</p>
+                      <p className="text-gray-600 mb-2">{source.description}</p>
+                      {source.articles && (
+                        <ul className="list-disc list-inside">
+                          {source.articles.map((a, i) => (
+                            <li key={i}>
+                              <a
+                                href={a.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 hover:underline"
+                              >
+                                {a.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </details>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 

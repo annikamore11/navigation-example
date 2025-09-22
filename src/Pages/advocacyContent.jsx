@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Carousel from "./advocacyCarousel";
+import Carousel from "../Carousel/advocacyCarousel";
 
 export function AdvocacyContent({ locName }) {
 // Example dummy advocacy group cards
