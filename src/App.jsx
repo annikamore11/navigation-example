@@ -96,7 +96,7 @@ const Jurisdictions = ["Congress", ...states];
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-screen bg-gray-100">
+    <div className="h-screen w-screen flex flex-col bg-gray-100">
       {/* Header */}
       <header className="flex items-center p-4 bg-gray-800 shadow z-10 justify-between">
         {/* Logo on the left */}
@@ -265,7 +265,7 @@ const Jurisdictions = ["Congress", ...states];
 
 
       {/* Main Content */}
-      <main className="flex-1 w-full overflow-y-auto text-gray-600">
+      <main className="flex-1 overflow-y-auto text-gray-600">
         <Routes>
           <Route path="/navigation-example" element={<MissionPage />} />
           <Route path="/home" element={<HomePage />} />
@@ -277,7 +277,7 @@ const Jurisdictions = ["Congress", ...states];
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white p-4 text-center w-full flex justify-between gap-4">
+      <footer className="bg-gray-800 text-white p-4 text-center flex justify-between gap-4">
         &copy; {new Date().getFullYear()} eGutenbergPress. All rights reserved.{" "}
         <a
           href="/navigation-example/"
