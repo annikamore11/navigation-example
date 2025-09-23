@@ -12,26 +12,28 @@ export default function MissionContent() {
     <div className="min-h-screen flex items-center justify-center bg-gray-300 p-6 overflow-y-auto">
       <div className="w-full max-w-4xl space-y-4">
         {/* Mission Card */}
-        <div className="bg-gray-100 rounded-xl shadow-lg p-8 space-y-4">
+        <div className="bg-white rounded-xl shadow-lg p-8 space-y-4">
           <h1 className="text-3xl font-bold text-center text-gray-800">
             Welcome to eGutenbergPress
           </h1>
 
           <p className="text-gray-600 text-lg">
-            At <span className="font-bold">eGutenberg Press</span>, our mission is to{" "}
+            At eGutenberg Press, our mission is to{" "}
             <span className="font-semibold">bring the power back to the people</span> by connecting
-            constituents directly with their elected officials in a{" "}
-            <span className="font-semibold">simple, centralized, and meaningful</span> way. 
+            constituents directly with their elected officials in a simple, centralized, and meaningful way. 
           </p>
           <p className="text-gray-600 text-lg">
-            Don’t let your voice fade into the noise of social media — be{" "}
-            <span className="font-bold">heard by the leaders who represent you</span>. An engaged
-            public is the foundation of a healthy democracy.
+            Don’t let your voice fade into the noise of social media — be heard by the leaders who represent you. 
+            An engaged public is the foundation of a healthy democracy.
           </p>
           <p className="text-gray-600 text-lg">
             By making advocacy effortless and impactful, eGutenberg 
-            Press helps ensure your perspective isn’t just part of the conversation — 
-            <span className="font-bold">it drives it</span>. 
+            Press helps ensure your perspective isn’t just part of the conversation — it drives it. 
+          </p>
+          <p className="text-gray-600 text-lg">
+            <span className="font-bold">We're different: </span>
+            eGutenberg Press is your all-in-one hub — the only place you need to get 
+            curated campaigns, news, and legislation on issues that matter, while sending messages effortlessly to the policymakers who can act on them.
           </p>
           <p className="text-center text-xl text-orange-700 font-bold">
             Join the advocacy groups already here, and discover the power of your VOICE!
@@ -49,6 +51,15 @@ export default function MissionContent() {
             </span> 
           </div>
         </div>
+
+        {/* Verification Callout */}
+        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-6 rounded-xl shadow">
+          <h2 className="text-xl font-bold mb-2">Verification = Impact</h2>
+          <p className="text-lg">
+            We verify your voter registration to ensure your messages are taken seriously by policymakers. Verified info also allows us to autofill your profile and personalize your letters with relevant demographic insights, giving your voice more weight.
+          </p>
+        </div>
+
 
         {/* Features Card */}
         <div className="bg-white rounded-xl shadow border border-gray-200">
@@ -80,11 +91,11 @@ export default function MissionContent() {
                   </p>
                   <p>
                     <span className="font-bold">Personalized Advocacy - </span>
-                    We verify voter registration to confirm your voice and auto-fill your profile with demographic insights, making your letters more persuasive.
+                    Verified voter info allows us to autofill your profile and letters with demographic context.
                   </p>
                   <p>
                     <span className="font-bold">Curated Updates - </span>
-                    Stay informed with the latest bills, campaigns, and national + local news, all curated to the issues you engage with.
+                    Stay informed with the latest bills, campaigns, and national + local news tailored to the issues you engage with.
                   </p>
                   <p>
                     <span className="font-bold">Action Oriented - </span>
