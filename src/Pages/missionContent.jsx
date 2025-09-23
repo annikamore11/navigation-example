@@ -9,7 +9,7 @@ export default function MissionContent() {
   const [gettingStartedOpen, setGettingStartedOpen] = useState(false);
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-gray-300 p-6 overflow-y-auto">
+    <div className="min-h-screen flex items-center justify-center bg-gray-300 p-6 overflow-y-auto">
       <div className="w-full max-w-4xl space-y-4">
         {/* Mission Card */}
         <div className="bg-gray-100 rounded-xl shadow-lg p-8 space-y-4">

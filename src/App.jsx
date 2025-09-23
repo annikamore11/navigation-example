@@ -96,7 +96,7 @@ const Jurisdictions = ["Congress", ...states];
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-gray-100">
+    <div className="flex flex-col min-h-screen w-screen bg-gray-100">
       {/* Header */}
       <header className="flex items-center p-4 bg-gray-800 shadow z-10 justify-between">
         {/* Logo on the left */}
