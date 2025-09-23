@@ -304,7 +304,7 @@ function NewsCard({ news }) {
 
 
   return (
-    <div className="py-2 px-2 g:p-10 grid grid-cols-1 lg:grid-cols-12 gap-4 bg-gray-300 min-h-screen">
+    <div className="py-2 px-2 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-4 bg-gray-300 min-h-screen">
         {/* Top metrics & location */}
         <aside className="lg:col-span-12 bg-gray-100 px-4 py-2 rounded-xl shadow-sm flex flex-col lg:flex-row justify-between items-center gap-2">
         {/* User Info */}

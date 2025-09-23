@@ -86,7 +86,7 @@ export function MemberContent({ locName }) {
 };
 
   return (
-    <div className="p-4 flex flex-col gap-6">
+    <div className="p-4 flex flex-col gap-6 min-h-screen">
         <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded shadow flex flex-col items-center gap-4">
             <div className="text-center">
                 {/* Header */}

@@ -10,12 +10,10 @@ import {MemberContent} from "./Pages/memberContent.jsx";
 
 function MissionPage() {
   return <MissionContent />;
-  
 }
 
 function HomePage() {
   return <HomeContent />;
-  
 }
 
 function IssuePage() {
@@ -77,7 +75,7 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/navigation-example/issues/${issue.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/issues/${issue.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
   const handleSelectLoc = (loc) => {
@@ -85,7 +83,7 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/navigation-example/loc/${loc.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/loc/${loc.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
   const handleSelectLocMem = (loc) => {
@@ -93,17 +91,17 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/navigation-example/members/${loc.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/members/${loc.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen w-full bg-gray-100">
       {/* Header */}
       <header className="flex items-center p-4 bg-gray-800 shadow z-10 justify-between">
         {/* Logo on the left */}
         <p className="text-s font-semibold text-white cursor-pointer" 
-        onClick={() => navigate("/navigation-example/home")}
+        onClick={() => navigate("/home")}
         >
           eGutenbergPress
         </p>
@@ -267,13 +265,13 @@ const Jurisdictions = ["Congress", ...states];
 
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto text-gray-600">
+      <main className="flex-1 w-full overflow-y-auto text-gray-600">
         <Routes>
           <Route path="/navigation-example" element={<MissionPage />} />
-          <Route path="/navigation-example/home" element={<HomePage />} />
-          <Route path="/navigation-example/issues/:issueName" element={<IssuePage />} />
-          <Route path="/navigation-example/loc/:locName" element={<AdvocacyPage />} />
-          <Route path="/navigation-example/members/:locName" element={<MemberPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/issues/:issueName" element={<IssuePage />} />
+          <Route path="/loc/:locName" element={<AdvocacyPage />} />
+          <Route path="/members/:locName" element={<MemberPage />} />
 
         </Routes>
       </main>
@@ -282,7 +280,7 @@ const Jurisdictions = ["Congress", ...states];
       <footer className="bg-gray-800 text-white p-4 text-center w-full flex justify-between gap-4">
         &copy; {new Date().getFullYear()} eGutenbergPress. All rights reserved.{" "}
         <a
-          href="/navigation-example"
+          href="/navigation-example/"
           className="text-white hover:underline ml-2"
         >
           Our Mission
