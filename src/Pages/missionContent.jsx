@@ -39,7 +39,7 @@ export default function MissionContent() {
 
           <div className="flex gap-6 justify-center mt-4"> 
             {/* Button */} 
-            <button onClick={() => navigate("/home")} className=" py-2 text-white rounded-lg hover:bg-blue-700" 
+            <button onClick={() => navigate("/navigation-example/home")} className=" py-2 text-white rounded-lg hover:bg-blue-700" 
             style={{backgroundColor: "black"}} > 
               Get Started 
             </button> 

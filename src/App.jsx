@@ -75,7 +75,7 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/issues/${issue.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/navigation-example/issues/${issue.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
   const handleSelectLoc = (loc) => {
@@ -83,7 +83,7 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/loc/${loc.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/navigation-example/loc/${loc.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
   const handleSelectLocMem = (loc) => {
@@ -91,7 +91,7 @@ const Jurisdictions = ["Congress", ...states];
     setShowIssues(false); // close submenu
     setShowLoc(false);
     setShowLocMem(false);
-    const route = `/members/${loc.toLowerCase().replace(/\s+/g, "-")}`;
+    const route = `/navigation-example/members/${loc.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(route)
   };
 
@@ -101,7 +101,7 @@ const Jurisdictions = ["Congress", ...states];
       <header className="flex items-center p-4 bg-gray-800 shadow z-10 justify-between">
         {/* Logo on the left */}
         <p className="text-s font-semibold text-white cursor-pointer" 
-        onClick={() => navigate("/home")}
+        onClick={() => navigate("/navigation-example/home")}
         >
           eGutenbergPress
         </p>
@@ -268,10 +268,10 @@ const Jurisdictions = ["Congress", ...states];
       <main className="flex-1 overflow-y-auto text-gray-600">
         <Routes>
           <Route path="/navigation-example" element={<MissionPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/issues/:issueName" element={<IssuePage />} />
-          <Route path="/loc/:locName" element={<AdvocacyPage />} />
-          <Route path="/members/:locName" element={<MemberPage />} />
+          <Route path="/navigation-example/home" element={<HomePage />} />
+          <Route path="/navigation-example/issues/:issueName" element={<IssuePage />} />
+          <Route path="/navigation-example/loc/:locName" element={<AdvocacyPage />} />
+          <Route path="/navigation-example/members/:locName" element={<MemberPage />} />
 
         </Routes>
       </main>
@@ -293,9 +293,9 @@ const Jurisdictions = ["Congress", ...states];
 // Wrap App in Router
 export function Root() {
   return (
-    <HashRouter>
+    <Router>
       <App />
-    </HashRouter>
+    </Router>
   );
 }
 
